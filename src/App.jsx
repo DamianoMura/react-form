@@ -37,7 +37,23 @@ function App() {
   return (
     <>
       <div className="container">
-        <h1>lista articoli</h1>
+        <div className="row">
+          <div className="col-12">
+            <h1>lista articoli</h1>
+          </div>
+          <div className="col-12">
+            <ul className="list-group list-unstyled">
+              {articles.map((article)=>{
+                return(
+
+                <li className="list-group-item" key={article.id}>
+                  <h3>{article.title}</h3>
+                </li>
+                )
+              })}
+            </ul>
+          </div>
+        </div>
       </div>
     </>
   )
