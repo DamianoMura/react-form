@@ -1,6 +1,6 @@
-import { useState } from "react";
+import { useState,useEffect } from "react";
 
-const articles = [
+const initialArticles = [
   {
     id : 1,
     title: "articolo 1",
@@ -35,7 +35,25 @@ const articles = [
 
 function App() {
   const [newArticle , setNewArticle] = useState("");
-  
+  const [articles, setArticles] =useState(initialArticles)
+ 
+ 
+  const handleSubmit=(e)=>{
+    e.preventDefault();
+    const newEntry={
+      id: articles[articles.length -1 ].id+1,
+      title:newArticle,
+      description:`descrizione articolo ${articles[articles.length -1 ].id+1}`
+    }
+    
+    setArticles([...articles, newEntry])
+    
+    alert("articolo salvato")
+  }
+   useEffect(()=>{
+    
+   console.log("new articles è stato aggiornato")
+  },[articles])
   return (
    
       <div className="container">
