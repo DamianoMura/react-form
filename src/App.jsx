@@ -40,10 +40,16 @@ function App() {
  
   const handleSubmit=(e)=>{
     e.preventDefault();
+    let newId=0;
+    if (articles.length==0){
+      newId=1;
+    }
+    else {newId=articles[articles.length -1 ].id+1}
+    
     const newEntry={
-      id: articles[articles.length -1 ].id+1,
+      id: newId,
       title:newArticle,
-      description:`descrizione articolo ${articles[articles.length -1 ].id+1}`
+      description:`descrizione articolo ${newId}`
     }
     
     setArticles([...articles, newEntry])
@@ -51,8 +57,12 @@ function App() {
     alert("articolo salvato")
   }
 
-  const handleDelete= () =>{
-
+  const handleDelete= (id) =>{
+   
+    const newArray=articles.filter((article) => { return article.id!=id})
+    
+     setArticles(newArray)
+   
   }
 
  
@@ -70,8 +80,8 @@ function App() {
 
                 <li className="list-group-item d-flex justify-content-between" key={article.id}>
                   <h3>{article.title}</h3>
-                  <div className="btn btn-danger"
-                  onClick={handleDelete}>elimina</div>
+                  <button className="btn btn-danger"
+                    onClick={()=> handleDelete(article.id)}>elimina</button>
                 </li>
                 )
               })}
