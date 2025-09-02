@@ -50,10 +50,12 @@ function App() {
     
     alert("articolo salvato")
   }
-   useEffect(()=>{
-    
-   console.log("new articles è stato aggiornato")
-  },[articles])
+
+  const handleDelete= () =>{
+
+  }
+
+ 
   return (
    
       <div className="container">
@@ -66,9 +68,10 @@ function App() {
               {articles.map((article)=>{
                 return(
 
-                <li className="list-group-item" key={article.id}>
+                <li className="list-group-item d-flex justify-content-between" key={article.id}>
                   <h3>{article.title}</h3>
-                  <div className="btn-danger"></div>
+                  <div className="btn btn-danger"
+                  onClick={handleDelete}>elimina</div>
                 </li>
                 )
               })}
