@@ -59,32 +59,23 @@ function App() {
           </div>
           <div className="col-12">
             
-                <div className="card">
-                  <div className="card-header">
-                    <h3>aggiungi articolo</h3>
-                  </div>
-                  <div className="card-body">
-                    <input 
-                      type="text" 
-                      placeholder="new title"
-                      
-                    /> 
-                    
-                  <div className="card-footer">
-                    <button 
-                      className="btn btn-success
-                    ">
-                      inserisci
-                    </button>
-                  </div>
-                </div>               
+              <form onSubmit={handleSubmit}>
+             <div className="d-flex mt-3">
+                <input type="text" className="form-control me-2" placeholder="inserisci articolo" 
+                value={newArticle}
+                onChange={(e)=> {
+                  setNewArticle(e.target.value)
+                }}/>
+                <button className="btn btn-success">aggiungi</button>
+              </div>             
+              </form>
                 
               
           </div>
         
         </div>
       </div>
-    </div>
+    
     
   )
 }
