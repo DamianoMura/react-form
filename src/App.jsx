@@ -55,6 +55,7 @@ function App() {
     setArticles([...articles, newEntry])
     
     alert("articolo salvato")
+    setNewArticle("")
   }
 
   const handleDelete= (id) =>{
